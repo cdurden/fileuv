@@ -13,14 +13,11 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 
 listener_data_t *listen(const char* path);
 RcppExport SEXP _fileuv_listen(SEXP s_path) {
-//listener_data_t *listen(const char* path, Rcpp::Function callback);
-//RcppExport SEXP _fileuv_listen(SEXP s_path, SEXP s_callback) {
 BEGIN_RCPP
     SEXP xptr;
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const char * >::type path(s_path);
-    //Rcpp::traits::input_parameter< Rcpp::Function >::type callback(s_callback);
     listener_data_t *listener_data_ptr = listen(path);
     xptr = R_MakeExternalPtr(listener_data_ptr, R_NilValue, s_path);
     R_PreserveObject(xptr);
